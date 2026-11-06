@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.5" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <!-- top bun -->
+  <path d="M12 30c0-10 9-16 20-16s20 6 20 16z" fill="#ff9800"/>
+  <circle cx="24" cy="21" r="1.5" fill="#fff3e0"/>
+  <circle cx="32" cy="19" r="1.5" fill="#fff3e0"/>
+  <circle cx="40" cy="21" r="1.5" fill="#fff3e0"/>
+  <!-- lettuce -->
+  <path d="M11 33h42l-4 3-4-3-4 3-4-3-4 3-4-3-4 3-4-3-4 3z" fill="#4ade80"/>
+  <!-- patty -->
+  <rect x="12" y="36" width="40" height="6" rx="3" fill="#7c2d12"/>
+  <!-- bottom bun -->
+  <path d="M12 44h40v2c0 3-3 5-6 5H18c-3 0-6-2-6-5z" fill="#ff9800"/>
+</svg>

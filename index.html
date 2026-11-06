@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodHouse Restaurant</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">FoodHouse 🍔</h1>
+
+            <ul id="nav-links" class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="cart-button" class="cart-button">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </button>
+
+                <button
+                    id="menu-toggle"
+                    class="menu-toggle"
+                    aria-label="Open menu"
+                    aria-controls="nav-links"
+                    aria-expanded="false">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+
+            <h2>Delicious Food<br>Delivered To You</h2>
+            <p>Order your favorite meals quickly and easily.</p>
+            <a href="#menu" class="hero-button">Order Now</a>
+        </div>
+
+    </section>
+
+    <section id="menu" class="menu-section">
+
+        <h2>Our Menu</h2>
+
+        <p class="section-description">Choose your favorite food</p>
+
+        <div class="food-container">
+
+            <div class="food-card">
+
+                <div class="food-image"><img src="images/burgers.jpg" alt="Classic Burger"></div>
+
+                <h3>Classic Burger</h3>
+                <p>Beef burger with cheese, lettuce and tomato.</p>
+
+                <div class="food-bottom">
+                    <span class="price">€8.99</span>
+
+                    <button
+                        class="add-button"
+                        onclick="addToCart('Classic Burger', 8.99)">Add to Cart
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="food-card">
+
+                <div class="food-image"><img src="images/pizza.jpg" alt="Pepperoni Pizza"></div>
+                <h3>Pepperoni Pizza</h3>
+                <p>Pizza with mozzarella cheese and pepperoni.</p>
+                <div class="food-bottom">
+
+                    <span class="price">€10.99</span>
+
+                    <button
+                        class="add-button"
+                        onclick="addToCart('Pepperoni Pizza', 10.99)">Add to Cart
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="food-card">
+                <div class="food-image"><img src="images/wings.jpg" alt="Chicken Wings"></div>
+
+                <h3>Chicken Wings</h3>
+                <p>Crispy chicken wings with our special sauce.</p>
+
+                <div class="food-bottom">
+
+                    <span class="price">€7.99</span>
+
+                    <button
+                        class="add-button"
+                        onclick="addToCart('Chicken Wings', 7.99)">Add to Cart</button>
+                </div>
+
+            </div>
+
+            <div class="food-card">
+                <div class="food-image"><img src="images/pasta.jpg" alt="Italian Pasta"></div>
+
+                <h3>Italian Pasta</h3>
+                <p>Fresh pasta with tomato sauce and parmesan.</p>
+
+                <div class="food-bottom">
+
+                    <span class="price">€9.49</span>
+
+                    <button
+                        class="add-button"
+                        onclick="addToCart('Italian Pasta', 9.49)">Add to Cart</button>
+                </div>
+
+            </div>
+
+            <div class="food-card">
+                <div class="food-image"><img src="images/tacos.jpg" alt="Chicken Tacos"></div>
+
+                <h3>Chicken Tacos</h3>
+                <p>Soft tacos with chicken, vegetables and sauce.</p>
+
+                <div class="food-bottom">
+
+                    <span class="price">€6.99</span>
+
+                    <button
+                        class="add-button"
+                        onclick="addToCart('Chicken Tacos', 6.99)">Add to Cart
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="food-card">
+
+                <div class="food-image"><img src="images/fries.jpg" alt="French Fries"></div>
+
+                <h3>French Fries</h3>
+                <p>Crispy golden fries with a delicious sauce.</p>
+
+                <div class="food-bottom">
+
+                    <span class="price">€3.99</span>
+
+                    <button
+                        class="add-button"
+                        onclick="addToCart('French Fries', 3.99)">Add to Cart</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+
+        <h2>About FoodHouse</h2>
+        <p>FoodHouse is a simple restaurant website where
+            customers can choose their favorite food and
+            add it to their shopping cart.</p>
+    </section>
+
+    <section id="contact" class="contact-section">
+
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:amarjanuzi8@gmail.com">amarjanuzi8@gmail.com</a></p>
+        <p>Phone: <a href="tel:+38348168655">+383 48 168 655</a></p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-logo">FoodHouse 🍔</p>
+
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <p class="copyright">© <span id="year">2026</span> FoodHouse. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <div id="cart" class="cart" role="dialog" aria-labelledby="cart-title">
+        <div class="cart-header">
+            <h2 id="cart-title">Your Cart</h2>
+            <button id="close-cart" aria-label="Close cart">✕</button>
+        </div>
+
+        <div id="cart-items">
+            <p class="empty-cart">Your cart is empty.</p>
+        </div>
+
+        <div class="cart-footer">
+
+            <h3>Total:
+                €<span id="cart-total">0.00</span>
+            </h3>
+
+            <button id="checkout-button">Checkout</button>
+        </div>
+    </div>
+    <div id="popup" class="popup" role="status" aria-live="polite">
+        <div class="popup-icon">✓</div>
+
+        <div class="popup-content">
+            <h3 id="popup-title">Success!</h3>
+            <p id="popup-message">Item added to your cart.</p>
+        </div>
+
+        <button id="popup-close" class="popup-close" aria-label="Close notification">×</button>
+    </div>
+
+    <div id="checkout" class="checkout-overlay">
+        <div class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+
+            <button id="close-checkout" class="close-checkout" aria-label="Close checkout">✕</button>
+
+            <!-- Step 1: order summary and details -->
+            <div id="checkout-step">
+                <h2 id="checkout-title">Checkout</h2>
+
+                <h3 class="checkout-subtitle">Order Summary</h3>
+
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="checkout-items"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Total</td>
+                            <td>€<span id="checkout-total">0.00</span></td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <h3 class="checkout-subtitle">Your Details</h3>
+
+                <form id="checkout-form" class="checkout-form">
+                    <label>
+                        Full Name
+                        <input type="text" id="customer-name" required autocomplete="name">
+                    </label>
+
+                    <label>
+                        Phone
+                        <input type="tel" id="customer-phone" required autocomplete="tel">
+                    </label>
+
+                    <label>
+                        Delivery Address
+                        <input type="text" id="customer-address" required autocomplete="street-address">
+                    </label>
+
+                    <label>
+                        Notes (optional)
+                        <textarea id="customer-notes" rows="2" placeholder="e.g. no onions, ring the bell"></textarea>
+                    </label>
+
+                    <fieldset class="payment-options">
+                        <legend>Payment Method</legend>
+
+                        <label class="radio">
+                            <input type="radio" name="payment" value="Cash on delivery" checked>
+                            Cash on delivery
+                        </label>
+
+                        <label class="radio">
+                            <input type="radio" name="payment" value="Card on delivery">
+                            Card on delivery
+                        </label>
+                    </fieldset>
+
+                    <div class="checkout-buttons">
+                        <button type="button" id="back-to-cart" class="secondary-button">Back to Cart</button>
+                        <button type="submit" class="primary-button">Place Order</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 2: receipt -->
+            <div id="receipt-step" class="receipt-step">
+                <div id="receipt" class="receipt">
+                    <div class="receipt-header">
+                        <h2>FoodHouse 🍔</h2>
+                        <p>Order Receipt</p>
+                    </div>
+
+                    <div class="receipt-info">
+                        <p><strong>Order #:</strong> <span id="receipt-number"></span></p>
+                        <p><strong>Date:</strong> <span id="receipt-date"></span></p>
+                        <p><strong>Name:</strong> <span id="receipt-name"></span></p>
+                        <p><strong>Phone:</strong> <span id="receipt-phone"></span></p>
+                        <p><strong>Address:</strong> <span id="receipt-address"></span></p>
+                        <p><strong>Payment:</strong> <span id="receipt-payment"></span></p>
+                        <p id="receipt-notes-row"><strong>Notes:</strong> <span id="receipt-notes"></span></p>
+                    </div>
+
+                    <table class="order-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="receipt-items"></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">Total</td>
+                                <td>€<span id="receipt-total">0.00</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <p class="receipt-thanks">Thank you for your order!</p>
+                </div>
+
+                <div class="checkout-buttons receipt-buttons">
+                    <button type="button" id="print-receipt" class="primary-button">🖨️ Print / Save as PDF</button>
+                    <button type="button" id="done-button" class="secondary-button">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
